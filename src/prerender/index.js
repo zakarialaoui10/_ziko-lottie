@@ -31,8 +31,6 @@ async function prerender({outDir = 'dist'} = "") {
     const pages = await globImports("./src/pages/**/*{.js,.ts,.mdz}") 
     const StaticPages = await resolveStaticRoutes(pages, StaticRoutesMap)
 
-    // console.log({pages, StaticPages})
-
     const grouped = routesGrouper(pages)
 
     const Manifest = new ManifestParser(`${outDir}/.client/.vite/manifest.json`)

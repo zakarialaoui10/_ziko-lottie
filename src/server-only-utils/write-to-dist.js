@@ -8,6 +8,9 @@ export async function writeToDist({route, ui, head, outDir = 'dist', entry_clien
 <html>
 <head>
     <script type="module" src="${entry_client_path}"></script>
+    <script type='application/json' id='ziko-data'>
+${JSON.stringify(globalThis?.Ziko ?? {}, null, 2)}
+    </script>
 </head>
 <body>
 ${ui}

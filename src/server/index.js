@@ -8,7 +8,7 @@ import {
   importMiddlewares,
   importPrerenderedRoutes,
 } from '../server-only-utils/index.js'
-import { hydration_setup } from './middlewares.js'
+
 import { setup_ziko_folder } from "../setup/setup-ziko-folder.js";
 import { SetupMiddleware } from './setup-middleware.js'
 
@@ -19,7 +19,6 @@ export async function createServer({ baseDir = process.cwd(), port = process.env
   const HTML_TEMPLATE = isProduction ? await readFile(join(baseDir, "./dist/.client/.ziko/index.html"), "utf-8") : "";
   const app = express();
 
-  app.use(hydration_setup)
   const Middlewares = await importMiddlewares()
   app.use(Middlewares.logger)
   app.use(SetupMiddleware)

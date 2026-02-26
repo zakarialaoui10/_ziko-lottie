@@ -15,6 +15,7 @@ export function SetupMiddleware(req, res, next) {
       origin,
       locals: {},   
     };
+    if(globalThis?.__Ziko__) __Ziko__.__HYDRATION__.reset();
   Object.assign(req, {Ziko})
   next();
 }
