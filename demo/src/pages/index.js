@@ -1,4 +1,4 @@
-import { tags } from "ziko/ui"
+import { tags } from "ziko/dom"
 export const head = {
     title : 'Ziko Server Home Page',
 }

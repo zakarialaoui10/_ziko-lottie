@@ -1,5 +1,5 @@
 'use client'
-import {tags} from 'ziko/ui'
+import {tags} from 'ziko/dom'
 import { Random } from 'ziko/math'
 const { span } = tags
 const Interactive = () => span('Interactive')
