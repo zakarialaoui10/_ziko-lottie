@@ -1,5 +1,5 @@
 {
-  "name": "@ziko/server",
+  "name": "@zikojs/server",
   "version": "0.1.0",
   "description": "server side rendering in zikojs with file-based-routing and client side hydration",
   "type": "module",
