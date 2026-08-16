@@ -1,6 +1,6 @@
 {
-  "name": "ziko-server",
-  "version": "0.19.3",
+  "name": "@ziko/server",
+  "version": "0.1.0",
   "description": "server side rendering in zikojs with file-based-routing and client side hydration",
   "type": "module",
   "source": "src/index.js",
@@ -13,6 +13,9 @@
   "exports": {
     ".": "./src/index.js",
     "./*": "./src/*/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "ziko",
