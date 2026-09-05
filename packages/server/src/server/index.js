@@ -2,6 +2,8 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url' // <--- 1. Import pathToFileURL
 import { httpAdapter } from '@zikojs/server-http'
+import { expressAdapter } from '@zikojs/server-express'
+import express from 'express'
 import { 
   setupEnvironmentMiddleware,
   trailingSlashMiddleware
@@ -10,7 +12,7 @@ import {
 const isProduction = process.env.NODE_ENV === 'production'
 
 export async function createServer({
-  adapter = httpAdapter,
+  adapter = expressAdapter,
   port = process.env.PORT || 5173,
   base = process.env.BASE || '/',
   trailingSlash = 'never',

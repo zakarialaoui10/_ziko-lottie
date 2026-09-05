@@ -1,3 +1,4 @@
+import express from 'express'
 export function expressAdapter() {
   const app = express()
   return {

@@ -53,6 +53,9 @@ importers:
 
   packages/server:
     dependencies:
+      '@zikojs/server-express':
+        specifier: workspace:*
+        version: link:../adapters/express
       '@zikojs/server-http':
         specifier: workspace:*
         version: link:../adapters/http
