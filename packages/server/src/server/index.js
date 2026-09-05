@@ -1,7 +1,11 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url' // <--- 1. Import pathToFileURL
 import { httpAdapter } from '@zikojs/server-http'
-import { trailingSlashMiddleware } from '../middlewares/index.js'
+import { 
+  setupEnvironmentMiddleware,
+  trailingSlashMiddleware
+} from '../middlewares/index.js'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -14,7 +18,7 @@ export async function createServer({
 } = {}) {
   const rootDir = cwd
 
-  // 1. Resolve adapter (supports factory functions or instantiated objects)
+  // 1. Resolve adapter
   const adapterInstance = typeof adapter === 'function' ? adapter() : adapter
 
   // 2. Normalize Base URL
@@ -26,9 +30,17 @@ export async function createServer({
   const serverDistPath = path.resolve(rootDir, './dist/server/entry-server.js')
   const indexHtmlPath = path.resolve(rootDir, './index.html')
 
-  // 4. Attach Trailing Slash Middleware before routes/middlewares
+  // 4. Attach Trailing Slash Middleware
   adapterInstance.use((req, res, next) => {
     trailingSlashMiddleware(trailingSlash, req, res, next)
+  })
+
+  // 5. Setup environment middleware
+  const vite = await setupEnvironmentMiddleware({
+    adapterInstance,
+    rootDir,
+    urlBase,
+    clientDistPath
   })
 
   // Cached production assets
@@ -36,25 +48,7 @@ export async function createServer({
     ? await fs.readFile(path.join(clientDistPath, 'index.html'), 'utf-8')
     : ''
 
-  /** @type {import('vite').ViteDevServer | undefined} */
-  let vite
-  if (!isProduction) {
-    const { createServer: createViteServer } = await import('vite')
-    vite = await createViteServer({
-      root: rootDir,
-      server: { middlewareMode: true },
-      appType: 'custom',
-      base: urlBase,
-    })
-    adapterInstance.use(vite.middlewares)
-  } else {
-    const compression = (await import('compression')).default
-    const sirv = (await import('sirv')).default
-    adapterInstance.use(compression())
-    adapterInstance.usePath(urlBase, sirv(clientDistPath, { extensions: [] }))
-  }
-
-  // SSR Route Handler
+  // 6. SSR Route Handler
   adapterInstance.handleRoute('*', async (req, res) => {
     try {
       const url = req.originalUrl.replace(urlBase, '')
@@ -67,7 +61,8 @@ export async function createServer({
         render = (await vite.ssrLoadModule('/.ziko/entry-server.js')).render
       } else {
         template = templateHtml
-        render = (await import(serverDistPath)).render
+        // 2. Wrap serverDistPath with pathToFileURL().href for Windows ESM compatibility
+        render = (await import(pathToFileURL(serverDistPath).href)).render
       }
 
       const rendered = await render(url)

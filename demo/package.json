@@ -7,8 +7,8 @@
     "dev": "node --watch .ziko/server.js",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build --outDir dist/client",
-    "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
-    "preview": "cross-env NODE_ENV=production node server"
+    "build:server": "vite build --ssr .ziko/entry-server.js --outDir dist/server",
+    "preview": "cross-env NODE_ENV=production node .ziko/server.js"
   },
   "dependencies": {
     "@zikojs/server" : "workspace:*", 
