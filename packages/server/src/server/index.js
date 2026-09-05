@@ -1,24 +1,39 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { httpAdapter } from '@zikojs/server-http'
+import { trailingSlashMiddleware } from '../middlewares/index.js'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
 export async function createServer({
   adapter = httpAdapter,
   port = process.env.PORT || 5173,
-  base = process.env.BASE || '/'
-
+  base = process.env.BASE || '/',
+  trailingSlash = 'never',
+  cwd = process.cwd()
 } = {}) {
+  const rootDir = cwd
 
-  const rootDir = process.cwd();
-  const adapterInstance = adapter();
+  // 1. Resolve adapter (supports factory functions or instantiated objects)
+  const adapterInstance = typeof adapter === 'function' ? adapter() : adapter
 
-  console.log(rootDir)
+  // 2. Normalize Base URL
+  const normalizedBase = base.startsWith('/') ? base : `/${base}`
+  const urlBase = normalizedBase.endsWith('/') ? normalizedBase : `${normalizedBase}/`
+
+  // 3. Resolve absolute filesystem paths relative to rootDir
+  const clientDistPath = path.resolve(rootDir, './dist/client')
+  const serverDistPath = path.resolve(rootDir, './dist/server/entry-server.js')
+  const indexHtmlPath = path.resolve(rootDir, './index.html')
+
+  // 4. Attach Trailing Slash Middleware before routes/middlewares
+  adapterInstance.use((req, res, next) => {
+    trailingSlashMiddleware(trailingSlash, req, res, next)
+  })
 
   // Cached production assets
   const templateHtml = isProduction
-    ? await fs.readFile('./dist/client/index.html', 'utf-8')
+    ? await fs.readFile(path.join(clientDistPath, 'index.html'), 'utf-8')
     : ''
 
   /** @type {import('vite').ViteDevServer | undefined} */
@@ -26,32 +41,33 @@ export async function createServer({
   if (!isProduction) {
     const { createServer: createViteServer } = await import('vite')
     vite = await createViteServer({
+      root: rootDir,
       server: { middlewareMode: true },
       appType: 'custom',
-      base,
+      base: urlBase,
     })
     adapterInstance.use(vite.middlewares)
   } else {
     const compression = (await import('compression')).default
     const sirv = (await import('sirv')).default
     adapterInstance.use(compression())
-    adapterInstance.usePath(base, sirv('./dist/client', { extensions: [] }))
+    adapterInstance.usePath(urlBase, sirv(clientDistPath, { extensions: [] }))
   }
 
   // SSR Route Handler
   adapterInstance.handleRoute('*', async (req, res) => {
     try {
-      const url = req.originalUrl.replace(base, '')
+      const url = req.originalUrl.replace(urlBase, '')
 
       let template
       let render
       if (!isProduction) {
-        template = await fs.readFile('./index.html', 'utf-8')
+        template = await fs.readFile(indexHtmlPath, 'utf-8')
         template = await vite.transformIndexHtml(url, template)
         render = (await vite.ssrLoadModule('/.ziko/entry-server.js')).render
       } else {
         template = templateHtml
-        render = (await import('./dist/server/entry-server.js')).render
+        render = (await import(serverDistPath)).render
       }
 
       const rendered = await render(url)
@@ -69,7 +85,6 @@ export async function createServer({
   })
 
   return adapterInstance.listen(port, () => {
-    console.log(`Server started at http://localhost:${port}`)
+    console.log(`Server started at http://localhost:${port}${urlBase}`)
   })
 }
-
