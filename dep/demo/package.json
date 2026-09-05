@@ -1,0 +1,20 @@
+{
+    "name": "ssr-test",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "generate:routes": "node .ziko/scripts/generate-routes.js",
+        "dev": "node .ziko/server.js",
+        "build:client": "cross-env TARGET=client vite build --config ziko.config.js",
+        "build:server": "cross-env TARGET=server vite build --config ziko.config.js",
+        "prerender": "node .ziko/scripts/prerender",
+        "build:ssr": "npm run build:client && npm run build:server",
+        "build:mixed": "npm run build:ssr && npm run prerender",
+        "preview:ssr": "cross-env NODE_ENV=production node .ziko/server",
+        "preview:static": "vite preview"
+    },
+    "dependencies": {
+        "zod": "^4.1.12"
+    }
+}

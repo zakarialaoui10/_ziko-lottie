@@ -1,63 +1,14 @@
 {
-  "name": "@zikojs/server",
-  "version": "0.1.0",
-  "description": "server side rendering in zikojs with file-based-routing and client side hydration",
-  "type": "module",
-  "source": "src/index.js",
-  "files": [
-    "src",
-    "types",
-    "dist",
-    "LICENCE"
-  ],
-  "exports": {
-    ".": "./src/index.js",
-    "./*": "./src/*/index.js"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "ziko",
-    "zikojs",
-    "ssr",
-    "ssg",
-    "rendering",
-    "hydration",
-    "server",
-    "middlewares"
-  ],
+  "name": "@zikojs/server-root",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "rollup -c rollup.config.js -w",
-    "build": "rollup -c rollup.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start-demo": "cd demo && npm run dev "
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zakarialaoui10/ziko-server.git"
-  },
+  "keywords": [],
   "author": "zakaria elalaoui",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/zakarialaoui10/ziko-server/issues"
-  },
-  "homepage": "https://github.com/zakarialaoui10/ziko-server#readme",
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^29.0.3",
-    "@rollup/plugin-node-resolve": "^16.0.3",
-    "@rollup/plugin-terser": "^1.0.0",
-    "rollup": "^4.62.4"
-  },
-  "dependencies": {
-    "compression": "^1.8.1",
-    "cross-env": "^10.1.0",
-    "express": "^5.2.1",
-    "extendom": "^0.0.0",
-    "fast-glob": "^3.3.3",
-    "jsdom": "^30.0.1",
-    "sirv": "^3.0.2",
-    "vite": "^8.2.1",
-    "ziko": "^1.8.0"
-  }
+  "packageManager": "pnpm@11.24.0",
+  "type": "module"
 }
