@@ -50,6 +50,7 @@ export async function createServer({ baseDir = process.cwd(), port = process.env
 
 
   app.get('/--ziko--', (req, res)=>{
+    if (isProduction) return res.status(404).end();
     res.json(globalThis.Ziko)
   })
 
