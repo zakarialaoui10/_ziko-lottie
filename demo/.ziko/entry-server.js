@@ -1,6 +1,6 @@
-import javascriptLogo from './assets/javascript.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import javascriptLogo from '../src/assets/javascript.svg'
+import viteLogo from '../src/assets/vite.svg'
+import heroImg from '../src/assets/hero.png'
 
 /**
  * @param {string} _url

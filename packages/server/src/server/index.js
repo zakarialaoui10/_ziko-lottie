@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises'
+import path from 'node:path'
 import { httpAdapter } from '@zikojs/server-http'
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -9,7 +10,11 @@ export async function createServer({
   base = process.env.BASE || '/'
 
 } = {}) {
-  const adapterInstance = adapter()
+
+  const rootDir = process.cwd();
+  const adapterInstance = adapter();
+
+  console.log(rootDir)
 
   // Cached production assets
   const templateHtml = isProduction
@@ -43,7 +48,7 @@ export async function createServer({
       if (!isProduction) {
         template = await fs.readFile('./index.html', 'utf-8')
         template = await vite.transformIndexHtml(url, template)
-        render = (await vite.ssrLoadModule('/src/entry-server.js')).render
+        render = (await vite.ssrLoadModule('/.ziko/entry-server.js')).render
       } else {
         template = templateHtml
         render = (await import('./dist/server/entry-server.js')).render
