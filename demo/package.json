@@ -11,8 +11,7 @@
     "preview": "cross-env NODE_ENV=production node server"
   },
   "dependencies": {
-    "compression": "^1.8.1",
-    "sirv": "^3.0.2",
+    "@zikojs/server" : "workspace:*", 
     "@zikojs/server-http" : "workspace:*",
     "@zikojs/server-express" : "workspace:*"
   },

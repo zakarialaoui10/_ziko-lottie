@@ -6,6 +6,9 @@ settings:
 
 catalogs:
   default:
+    vite:
+      specifier: ^8.2.2
+      version: 8.2.2
     ziko:
       specifier: ^2.0.0-beta.5
       version: 2.0.0-beta.5
@@ -16,18 +19,15 @@ importers:
 
   demo:
     dependencies:
+      '@zikojs/server':
+        specifier: workspace:*
+        version: link:../packages/server
       '@zikojs/server-express':
         specifier: workspace:*
         version: link:../packages/adapters/express
       '@zikojs/server-http':
         specifier: workspace:*
         version: link:../packages/adapters/http
-      compression:
-        specifier: ^1.8.1
-        version: 1.8.1
-      sirv:
-        specifier: ^3.0.2
-        version: 3.0.2
     devDependencies:
       cross-env:
         specifier: ^10.1.0
@@ -47,6 +47,27 @@ importers:
 
   packages/adapters/http:
     dependencies:
+      ziko:
+        specifier: 'catalog:'
+        version: 2.0.0-beta.5
+
+  packages/server:
+    dependencies:
+      '@zikojs/server-http':
+        specifier: workspace:*
+        version: link:../adapters/http
+      compression:
+        specifier: ^1.8.1
+        version: 1.8.1
+      express:
+        specifier: ^5.2.1
+        version: 5.2.1
+      sirv:
+        specifier: ^3.0.2
+        version: 3.0.2
+      vite:
+        specifier: 'catalog:'
+        version: 8.2.2
       ziko:
         specifier: 'catalog:'
         version: 2.0.0-beta.5

@@ -1,0 +1,42 @@
+{
+  "name": "@zikojs/server",
+  "version": "0.2.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "zikojs",
+    "server",
+    "express"
+  ],
+  "homepage": "https://github.com/zikojs/ziko#readme",
+  "bugs": {
+    "url": "https://github.com/zikojs/ziko/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zikojs/ziko.git",
+    "directory": "packages/adapters/express"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports":{
+    "." : {
+      "import" : "./src/index.js"
+    }
+  },
+  "author": "zakaria elalaoui",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.2.1",
+    "compression": "^1.8.1",
+    "sirv": "^3.0.2",
+    "ziko": "catalog:",
+    "vite": "catalog:",
+    "@zikojs/server-http" : "workspace:*"
+  }
+}
