@@ -1,1 +1,1 @@
-export * from './glob-imports.js'
+export * from './globImports.js'
