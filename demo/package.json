@@ -13,7 +13,8 @@
   "dependencies": {
     "@zikojs/server" : "workspace:*", 
     "@zikojs/server-http" : "workspace:*",
-    "@zikojs/server-express" : "workspace:*"
+    "@zikojs/server-express" : "workspace:*",
+    "ziko" : "catalog:"
   },
   "devDependencies": {
     "cross-env": "^10.1.0",

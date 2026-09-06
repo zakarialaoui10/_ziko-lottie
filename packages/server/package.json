@@ -23,24 +23,25 @@
   "publishConfig": {
     "access": "public"
   },
-  "exports":{
-    "." : {
-      "import" : "./src/index.js"
+  "exports": {
+    ".": {
+      "import": "./src/index.js"
     },
-    "./*" : {
-      "import" : "./src/index.js"
+    "./*": {
+      "import": "./src/*/index.js"
     }
   },
   "author": "zakaria elalaoui",
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "express": "^5.2.1",
+    "@zikojs/server-express": "workspace:*",
+    "@zikojs/server-http": "workspace:*",
     "compression": "^1.8.1",
+    "express": "^5.2.1",
+    "fast-glob": "^3.3.3",
     "sirv": "^3.0.2",
-    "ziko": "catalog:",
     "vite": "catalog:",
-    "@zikojs/server-http" : "workspace:*",
-    "@zikojs/server-express" : "workspace:*"
+    "ziko": "catalog:"
   }
 }

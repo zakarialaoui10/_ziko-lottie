@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "ii" : "pnpm clean --lockfile && pnpm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "zakaria elalaoui",
   "license": "MIT",
   "packageManager": "pnpm@11.24.0",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "ziko": "2.0.0-beta.7"
+  }
 }

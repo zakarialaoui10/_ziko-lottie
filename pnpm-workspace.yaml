@@ -3,7 +3,7 @@ packages:
   - "packages/adapters/*"
   - "demo"
 catalog:
-  ziko: "^2.0.0-beta.5"
+  ziko: "^2.0.0-beta.7"
   vite: "^8.2.2"
 minimumReleaseAgeExclude:
-  - ziko@2.0.0-beta.5
+  - ziko@2.0.0-beta.7

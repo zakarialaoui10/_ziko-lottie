@@ -60,3 +60,18 @@ export function render(_url) {
   `
   return { html }
 }
+
+import { globImports } from '@zikojs/server/server-only-utils'
+
+const pages = await globImports()
+
+console.log(pages)
+import { createSPAFileBasedRouter } from 'ziko/app/router'
+
+createSPAFileBasedRouter({
+    pages,
+    renderer : async (target, component, props, wrapper) => {
+      console.log(props)
+    },
+    target : 'no dom'
+})
