@@ -2,11 +2,27 @@ import javascriptLogo from '../src/assets/javascript.svg'
 import viteLogo from '../src/assets/vite.svg'
 import heroImg from '/hero.png'
 
+import { globImports } from '@zikojs/server/server-only-utils'
+
+const pages = await globImports()
+
+import { createFileBasedRouter } from 'ziko/app/router'
+
 /**
  * @param {string} _url
  */
-export function render(_url) {
+export async function render(_url) {
+  const app = await createFileBasedRouter({
+    pages,
+    renderer : async (target, component, props, wrapper) => {
+      console.log(component(props))
+    },
+    target : 'no dom',
+    url : _url
+})
+console.log(app)
   const html = `
+  ${app.component()}
     <section id="center">
       <div class="hero">
         <img src="${heroImg}" class="base" width="170" height="179" />
@@ -61,17 +77,5 @@ export function render(_url) {
   return { html }
 }
 
-import { globImports } from '@zikojs/server/server-only-utils'
 
-const pages = await globImports()
-
-console.log(pages)
-import { createSPAFileBasedRouter } from 'ziko/app/router'
-
-createSPAFileBasedRouter({
-    pages,
-    renderer : async (target, component, props, wrapper) => {
-      console.log(props)
-    },
-    target : 'no dom'
-})
+// console.log(pages)

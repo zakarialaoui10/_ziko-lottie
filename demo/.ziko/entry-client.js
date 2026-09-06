@@ -11,7 +11,7 @@ console.log(pages)
 createSPAFileBasedRouter({
     pages,
     renderer : async (target, component, props, wrapper) => {
-      console.log(component)
+      console.log(component({props}))
     },
     target : document.body
 })
