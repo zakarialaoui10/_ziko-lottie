@@ -10,16 +10,16 @@ catalogs:
       specifier: ^8.2.2
       version: 8.2.2
     ziko:
-      specifier: ^2.0.0-beta.7
-      version: 2.0.0-beta.7
+      specifier: ^2.0.0-beta.8
+      version: 2.0.0-beta.8
 
 importers:
 
   .:
     dependencies:
       ziko:
-        specifier: 2.0.0-beta.7
-        version: 2.0.0-beta.7
+        specifier: 2.0.0-beta.8
+        version: 2.0.0-beta.8
 
   demo:
     dependencies:
@@ -46,7 +46,7 @@ importers:
         version: link:../packages/server
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.7
+        version: 2.0.0-beta.8
     devDependencies:
       cross-env:
         specifier: ^10.1.0
@@ -62,7 +62,7 @@ importers:
         version: 5.2.1
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.7
+        version: 2.0.0-beta.8
 
   packages/adapters/fastify:
     dependencies:
@@ -71,7 +71,7 @@ importers:
         version: 5.12.3
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.7
+        version: 2.0.0-beta.8
 
   packages/adapters/hono:
     dependencies:
@@ -83,13 +83,13 @@ importers:
         version: 4.13.7
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.7
+        version: 2.0.0-beta.8
 
   packages/adapters/http:
     dependencies:
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.7
+        version: 2.0.0-beta.8
 
   packages/adapters/koa:
     dependencies:
@@ -98,7 +98,7 @@ importers:
         version: 3.2.1
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.7
+        version: 2.0.0-beta.8
 
   packages/adapters/polka:
     dependencies:
@@ -107,7 +107,7 @@ importers:
         version: 0.5.2
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.7
+        version: 2.0.0-beta.8
 
   packages/server:
     dependencies:
@@ -134,7 +134,7 @@ importers:
         version: 8.2.2
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.7
+        version: 2.0.0-beta.8
 
 packages:
 
@@ -1068,8 +1068,8 @@ packages:
   wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
-  ziko@2.0.0-beta.7:
-    resolution: {integrity: sha512-eze3n/viifhjG/4BnPVIZpi97zmNXPeGO0WFpk45o9cqU9cU39dNBsFtVQXMQm79BnPk8JKWgTEecUt85J9UQA==}
+  ziko@2.0.0-beta.8:
+    resolution: {integrity: sha512-ufLViNT0MOl1lRNEJfrnAGRngatatlC+L0XurGvKGNDwDxmtEXaGwtpBpStZJpKWDlxtRjSRC9oQKleze6Ct4Q==}
 
 snapshots:
 
@@ -1926,4 +1926,4 @@ snapshots:
 
   wrappy@1.0.2: {}
 
-  ziko@2.0.0-beta.7: {}
+  ziko@2.0.0-beta.8: {}

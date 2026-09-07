@@ -1,17 +1,9 @@
 import '../src/style.css'
-import { setupCounter } from '../src/counter'
-
-setupCounter(document.querySelector('#counter'))
-
-import { createSPAFileBasedRouter } from 'ziko/app/router'
-
+import { createEntryClient } from '@zikojs/server/entry-client'
 
 const pages = await import.meta.glob('../*/pages/**/*.js')
 console.log(pages)
-createSPAFileBasedRouter({
-    pages,
-    renderer : async (target, component, props, wrapper) => {
-      console.log(component({props}))
-    },
-    target : document.body
+
+createEntryClient({
+  pages
 })

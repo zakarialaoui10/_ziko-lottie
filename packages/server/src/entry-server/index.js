@@ -1,5 +1,5 @@
 import { globImports } from '../server-only-utils/index.js'
-import { createFileBasedRouter } from 'ziko/app/router'
+import { createFileBasedRouter } from 'ziko/router'
 
 export function createEntryServer(){
     return async function render(_url) {
