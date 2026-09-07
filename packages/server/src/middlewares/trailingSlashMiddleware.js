@@ -1,5 +1,3 @@
-const isProduction = process.env.NODE_ENV === 'production'
-
 /**
  * Handles trailing slashes based on the specified behavior strategy.
  *
@@ -8,7 +6,11 @@ const isProduction = process.env.NODE_ENV === 'production'
  * @param {import('http').ServerResponse} res
  * @param {Function} next
  */
-export function trailingSlashMiddleware(behavior, req, res, next) {
+export function trailingSlashMiddleware(
+  {
+    behavior,
+    isProduction
+  }, req, res, next) {
   // 1. Skip middleware if behavior is 'ignore'
   if (!behavior || behavior === 'ignore') {
     return next()

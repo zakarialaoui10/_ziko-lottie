@@ -4,9 +4,12 @@ import { pathToFileURL } from 'node:url' // <--- 1. Import pathToFileURL
 import { httpAdapter } from '@zikojs/http'
 import { expressAdapter } from '@zikojs/express'
 import { 
-  setupEnvironmentMiddleware,
   trailingSlashMiddleware
 } from '../middlewares/index.js'
+
+import {
+  setupEnvironment
+} from '../server-only-utils/index.js'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -33,15 +36,21 @@ export async function createServer({
 
   // 4. Attach Trailing Slash Middleware
   adapterInstance.use((req, res, next) => {
-    trailingSlashMiddleware(trailingSlash, req, res, next)
+    trailingSlashMiddleware(
+      {
+        behavior : trailingSlash,
+        isProduction
+      }, 
+      req, res, next)
   })
 
   // 5. Setup environment middleware
-  const vite = await setupEnvironmentMiddleware({
+  const vite = await setupEnvironment({
     adapterInstance,
     rootDir,
     urlBase,
-    clientDistPath
+    clientDistPath,
+    isProduction
   })
 
   // Cached production assets

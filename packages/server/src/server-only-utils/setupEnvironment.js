@@ -1,9 +1,11 @@
-const isProduction = process.env.NODE_ENV === 'production'
-/**
- * Sets up environment-specific middleware.
- */
-export async function setupEnvironmentMiddleware({ adapterInstance, rootDir, urlBase, clientDistPath }) {
-  if (process.env.NODE_ENV !== 'production') {
+export async function setupEnvironment({ 
+  adapterInstance, 
+  rootDir, 
+  urlBase, 
+  clientDistPath,
+  isProduction 
+}) {
+  if (!isProduction) {
     const { createServer: createViteServer } = await import('vite')
     const vite = await createViteServer({
       root: rootDir,
