@@ -1,0 +1,38 @@
+{
+  "name": "@zikojs/koa",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "zikojs",
+    "server",
+    "koa"
+  ],
+  "homepage": "https://github.com/zikojs/ziko#readme",
+  "bugs": {
+    "url": "https://github.com/zikojs/ziko/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zikojs/ziko.git",
+    "directory": "packages/adapters/koa"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.js"
+    }
+  },
+  "author": "zakaria elalaoui",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "koa": "^3.2.1",
+    "ziko": "catalog:"
+  }
+}
