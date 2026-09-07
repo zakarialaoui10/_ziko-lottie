@@ -1,4 +1,4 @@
-import javascriptLogo from '../src/assets/javascript.svg'
+import javascriptLogo from '/javascript.svg'
 import viteLogo from '../src/assets/vite.svg'
 import heroImg from '/hero.png'
 
