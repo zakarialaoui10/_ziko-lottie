@@ -5,7 +5,6 @@ export function fastifyAdapter(options = {}) {
 
   return {
     use(middleware) {
-      // Use @fastify/express or raw onRequest hooks
       app.addHook('onRequest', async (req, reply) => {
         return new Promise((resolve, reject) => {
           middleware(req.raw, reply.raw, (err) => {
@@ -31,10 +30,30 @@ export function fastifyAdapter(options = {}) {
 
     handleRoute(path, handler) {
       const fastifyPath = path === '*' || path === '*all' ? '/*' : path
-      
+
       app.all(fastifyPath, async (req, reply) => {
-        reply.hijack() // Prevent Fastify from automatically sending response
-        await handler(req.raw, reply.raw)
+        reply.hijack() // Hand control over to raw res stream
+
+        // Attach helper methods to reply.raw for chaining
+        const res = reply.raw
+        req.raw.originalUrl = req.raw.originalUrl || req.raw.url
+
+        res.status = function (code) {
+          res.statusCode = code
+          return res
+        }
+        res.set = function (headers) {
+          for (const [key, value] of Object.entries(headers)) {
+            res.setHeader(key, value)
+          }
+          return res
+        }
+        res.send = function (body) {
+          res.end(body)
+          return res
+        }
+
+        await handler(req.raw, res)
       })
     },
 

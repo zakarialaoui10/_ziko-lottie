@@ -14,6 +14,10 @@
     "@zikojs/server" : "workspace:*", 
     "@zikojs/http" : "workspace:*",
     "@zikojs/express" : "workspace:*",
+    "@zikojs/koa" : "workspace:*",
+    "@zikojs/fastify" : "workspace:*",
+    "@zikojs/hono" : "workspace:*",
+    "@zikojs/polka" : "workspace:*",
     "ziko" : "catalog:"
   },
   "devDependencies": {

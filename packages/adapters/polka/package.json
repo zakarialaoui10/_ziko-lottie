@@ -1,15 +1,15 @@
 {
   "name": "@zikojs/polka",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-      "zikojs",
-      "server",
-      "polka"
+    "zikojs",
+    "server",
+    "polka"
   ],
   "homepage": "https://github.com/zikojs/ziko#readme",
   "bugs": {
@@ -23,15 +23,16 @@
   "publishConfig": {
     "access": "public"
   },
-  "exports":{
-    "." : {
-      "import" : "./src/index.js"
+  "exports": {
+    ".": {
+      "import": "./src/index.js"
     }
   },
   "author": "zakaria elalaoui",
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "ziko":"catalog:"
+    "polka": "^0.5.2",
+    "ziko": "catalog:"
   }
 }

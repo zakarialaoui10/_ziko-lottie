@@ -22,7 +22,6 @@ export async function render(_url) {
 })
 console.log(app)
   const html = `
-  ${app.component()}
     <section id="center">
       <div class="hero">
         <img src="${heroImg}" class="base" width="170" height="179" />
