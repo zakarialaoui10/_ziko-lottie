@@ -1,9 +1,8 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url' // <--- 1. Import pathToFileURL
-import { httpAdapter } from '@zikojs/server-http'
-import { expressAdapter } from '@zikojs/server-express'
-import express from 'express'
+import { httpAdapter } from '@zikojs/http'
+import { expressAdapter } from '@zikojs/express'
 import { 
   setupEnvironmentMiddleware,
   trailingSlashMiddleware

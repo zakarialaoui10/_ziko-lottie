@@ -35,8 +35,8 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "@zikojs/server-express": "workspace:*",
-    "@zikojs/server-http": "workspace:*",
+    "@zikojs/express": "workspace:*",
+    "@zikojs/http": "workspace:*",
     "compression": "^1.8.1",
     "express": "^5.2.1",
     "fast-glob": "^3.3.3",

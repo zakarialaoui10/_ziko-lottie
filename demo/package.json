@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@zikojs/server" : "workspace:*", 
-    "@zikojs/server-http" : "workspace:*",
-    "@zikojs/server-express" : "workspace:*",
+    "@zikojs/http" : "workspace:*",
+    "@zikojs/express" : "workspace:*",
     "ziko" : "catalog:"
   },
   "devDependencies": {

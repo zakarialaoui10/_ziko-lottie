@@ -23,15 +23,15 @@ importers:
 
   demo:
     dependencies:
+      '@zikojs/express':
+        specifier: workspace:*
+        version: link:../packages/adapters/express
+      '@zikojs/http':
+        specifier: workspace:*
+        version: link:../packages/adapters/http
       '@zikojs/server':
         specifier: workspace:*
         version: link:../packages/server
-      '@zikojs/server-express':
-        specifier: workspace:*
-        version: link:../packages/adapters/express
-      '@zikojs/server-http':
-        specifier: workspace:*
-        version: link:../packages/adapters/http
       ziko:
         specifier: 'catalog:'
         version: 2.0.0-beta.7
@@ -60,10 +60,10 @@ importers:
 
   packages/server:
     dependencies:
-      '@zikojs/server-express':
+      '@zikojs/express':
         specifier: workspace:*
         version: link:../adapters/express
-      '@zikojs/server-http':
+      '@zikojs/http':
         specifier: workspace:*
         version: link:../adapters/http
       compression:
