@@ -1,6 +1,6 @@
 {
   "name": "@zikojs/server",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -40,6 +40,7 @@
     "compression": "^1.8.1",
     "express": "^5.2.1",
     "fast-glob": "^3.3.3",
+    "jsdom": "^30.0.1",
     "sirv": "^3.0.2",
     "vite": "catalog:",
     "ziko": "catalog:"
