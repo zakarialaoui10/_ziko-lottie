@@ -1,15 +1,15 @@
 {
-  "name": "@zikojs/server",
-  "version": "0.4.0",
+  "name": "@zikojs/polka",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "zikojs",
-    "server",
-    "express"
+      "zikojs",
+      "server",
+      "polka"
   ],
   "homepage": "https://github.com/zikojs/ziko#readme",
   "bugs": {
@@ -18,30 +18,20 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zikojs/ziko.git",
-    "directory": "packages/adapters/express"
+    "directory": "packages/adapters/polka"
   },
   "publishConfig": {
     "access": "public"
   },
-  "exports": {
-    ".": {
-      "import": "./src/index.js"
-    },
-    "./*": {
-      "import": "./src/*/index.js"
+  "exports":{
+    "." : {
+      "import" : "./src/index.js"
     }
   },
   "author": "zakaria elalaoui",
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "@zikojs/express": "workspace:*",
-    "@zikojs/http": "workspace:*",
-    "compression": "^1.8.1",
-    "express": "^5.2.1",
-    "fast-glob": "^3.3.3",
-    "sirv": "^3.0.2",
-    "vite": "catalog:",
-    "ziko": "catalog:"
+    "ziko":"catalog:"
   }
 }
