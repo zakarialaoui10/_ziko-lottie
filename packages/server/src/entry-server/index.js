@@ -7,15 +7,24 @@ export function createEntryServer(){
         const app = await createFileBasedRouter({
             pages,
             renderer : async (target, component, props, wrapper) => {
-            console.log(component(props))
+            if(component) console.log(component(props))
             },
             target : 'no dom',
-            url : _url
+            url : _url,
+            namedExportHandler : {
+                GET: async (exportedFn, context) => {
+                    console.log(exportedFn(context.params))
+            }
+        }
         })
-        console.log(app)
+        const {params, namedExports} = app
         const html = `
             <h1> Hello from server </h1>
         `
-        return { html }
+        return { 
+            html,
+            params,
+            namedExports
+        }
     }
 }

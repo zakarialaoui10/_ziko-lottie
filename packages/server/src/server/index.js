@@ -77,6 +77,9 @@ export async function createServer({
 
       const rendered = await render(url)
 
+      const { namedExports, params} = rendered;
+
+
       const html = template
         .replace(`<!--app-head-->`, rendered.head ?? '')
         .replace(`<!--app-html-->`, rendered.html ?? '')

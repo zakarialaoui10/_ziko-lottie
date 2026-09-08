@@ -10,16 +10,16 @@ catalogs:
       specifier: ^8.2.2
       version: 8.2.2
     ziko:
-      specifier: ^2.0.0-beta.8
-      version: 2.0.0-beta.8
+      specifier: ^2.0.0-beta.10
+      version: 2.0.0-beta.10
 
 importers:
 
   .:
     dependencies:
       ziko:
-        specifier: 2.0.0-beta.8
-        version: 2.0.0-beta.8
+        specifier: 2.0.0-beta.10
+        version: 2.0.0-beta.10
 
   demo:
     dependencies:
@@ -46,7 +46,7 @@ importers:
         version: link:../packages/server
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.8
+        version: 2.0.0-beta.10
     devDependencies:
       cross-env:
         specifier: ^10.1.0
@@ -62,7 +62,7 @@ importers:
         version: 5.2.1
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.8
+        version: 2.0.0-beta.10
 
   packages/adapters/fastify:
     dependencies:
@@ -71,7 +71,7 @@ importers:
         version: 5.12.3
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.8
+        version: 2.0.0-beta.10
 
   packages/adapters/hono:
     dependencies:
@@ -83,13 +83,13 @@ importers:
         version: 4.13.7
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.8
+        version: 2.0.0-beta.10
 
   packages/adapters/http:
     dependencies:
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.8
+        version: 2.0.0-beta.10
 
   packages/adapters/koa:
     dependencies:
@@ -98,7 +98,7 @@ importers:
         version: 3.2.1
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.8
+        version: 2.0.0-beta.10
 
   packages/adapters/polka:
     dependencies:
@@ -107,7 +107,7 @@ importers:
         version: 0.5.2
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.8
+        version: 2.0.0-beta.10
 
   packages/server:
     dependencies:
@@ -137,7 +137,7 @@ importers:
         version: 8.2.2
       ziko:
         specifier: 'catalog:'
-        version: 2.0.0-beta.8
+        version: 2.0.0-beta.10
 
 packages:
 
@@ -381,8 +381,8 @@ packages:
   avvio@9.3.0:
     resolution: {integrity: sha512-g2tQ7LE7oOSqDfwEm3M+ZCMTJc7KiZCdJ4UwyZJb5ckTKyYu50OYmvv0mCFXPuYXoM4zkSt8zM9XQ9KCvxA74A==}
 
-  bidi-js@1.0.3:
-    resolution: {integrity: sha512-RKshQI1R3YQ+n9YJz2QQ147P66ELpa1FQEg20Dk8oW9t2KgLbpDLLp9aGZ7y8WHSshDknG0bknqGw5/tyCs5tw==}
+  bidi-js@1.1.0:
+    resolution: {integrity: sha512-fX1Onk0tdVPC7obPWB5EbJ1z7NVhLq4m2xZLq2YXBkxzMXIGRpNMU88n0EPgWseKl12J7zXs7qrDxPK4sRs2fg==}
 
   body-parser@2.3.0:
     resolution: {integrity: sha512-2cGmJupaNgg+QUwVLAucDuWuoMZ6EX9iHDRswZ5lsNYEmwPaRknMPCLZz07yTzVq/83p4o/wzbDZbBrTvGGTIw==}
@@ -1096,11 +1096,11 @@ packages:
     resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==}
     engines: {node: '>=12.0.0'}
 
-  tldts-core@7.4.11:
-    resolution: {integrity: sha512-CW3WN2rIIE/Of21mulhgnGOwoDyEFNygyIBOONSdyAuSATgMMUCpLeUlB+E8sAwA5xRV9hYPl+kyZ9citHCaKg==}
+  tldts-core@7.4.12:
+    resolution: {integrity: sha512-nYNzS2WRf4QJmjzFFgAxLOBjyBxAGRbCy9PVBPaglcYyYajh40VBn+v5Ngr96ZMc7oM0+aCJdtQnNejvdBnXMQ==}
 
-  tldts@7.4.11:
-    resolution: {integrity: sha512-aBiNayCfTQxuIJBm06M+xR14cYaYlDlSXZbgsnKzKNxDKUVq7KFwTjwBSsb7m9Y5xO8WfPnBc63WaYFMTGlvqw==}
+  tldts@7.4.12:
+    resolution: {integrity: sha512-WylhSDKVeYnWXL3a+vKTaOxjnOeEGw938hImY8zoRWJjRRK/Jp1K+IihBzIONpUmW4e3WmXT6q5FW6vlESVZCA==}
     hasBin: true
 
   to-regex-range@5.0.1:
@@ -1229,8 +1229,8 @@ packages:
   xmlchars@2.2.0:
     resolution: {integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==}
 
-  ziko@2.0.0-beta.8:
-    resolution: {integrity: sha512-ufLViNT0MOl1lRNEJfrnAGRngatatlC+L0XurGvKGNDwDxmtEXaGwtpBpStZJpKWDlxtRjSRC9oQKleze6Ct4Q==}
+  ziko@2.0.0-beta.10:
+    resolution: {integrity: sha512-bSHLyPWlVw/r9zXYSc/8iG34yaEHhPtXusXQ4+CFXQ90UetElTEXrTjZpc3jhXlJpDalpk7nGax1VenKh4KwGQ==}
 
 snapshots:
 
@@ -1246,7 +1246,7 @@ snapshots:
 
   '@asamuzakjp/dom-selector@8.3.2':
     dependencies:
-      bidi-js: 1.0.3
+      bidi-js: 1.1.0
       css-tree: 3.2.1
       is-potential-custom-element-name: 1.0.1
       lru-cache: 11.5.2
@@ -1407,7 +1407,7 @@ snapshots:
       '@fastify/error': 4.2.0
       fastq: 1.20.3
 
-  bidi-js@1.0.3:
+  bidi-js@1.1.0:
     dependencies:
       require-from-string: 2.0.2
 
@@ -2160,11 +2160,11 @@ snapshots:
       fdir: 6.5.0(picomatch@4.0.7)
       picomatch: 4.0.7
 
-  tldts-core@7.4.11: {}
+  tldts-core@7.4.12: {}
 
-  tldts@7.4.11:
+  tldts@7.4.12:
     dependencies:
-      tldts-core: 7.4.11
+      tldts-core: 7.4.12
 
   to-regex-range@5.0.1:
     dependencies:
@@ -2178,7 +2178,7 @@ snapshots:
 
   tough-cookie@6.0.2:
     dependencies:
-      tldts: 7.4.11
+      tldts: 7.4.12
 
   tr46@6.0.0:
     dependencies:
@@ -2246,4 +2246,4 @@ snapshots:
 
   xmlchars@2.2.0: {}
 
-  ziko@2.0.0-beta.8: {}
+  ziko@2.0.0-beta.10: {}
